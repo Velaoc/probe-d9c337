@@ -1,0 +1,28 @@
+{
+  "name": "probe-d9c337",
+  "purpose": "A one-page guestbook where visitors type a short message and see the wall of messages, newest first.",
+  "actors": [
+    "visitor"
+  ],
+  "entities": [
+    {
+      "name": "Message",
+      "relationships": [
+        "has author name (optional), body text, created_at"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "name": "View the wall",
+      "description": "visitor lands on the single page and sees all messages, newest first"
+    },
+    {
+      "name": "Post a message",
+      "description": "visitor types a short message and submits it; it appears at the top of the wall"
+    }
+  ],
+  "modules": [],
+  "integrations": [],
+  "seed_demo": "A handful of friendly welcome messages with names and dates so the wall looks alive on first load."
+}
