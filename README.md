@@ -1,43 +1,50 @@
-<!-- foundation:identity -->
 # probe-d9c337
 
-A one-page guestbook where visitors type a short message and see the wall of messages, newest first.
+A one-page guestbook: visitors type a short message and see the wall of
+messages, newest first. That's the whole product — no accounts, no pricing,
+no sign-up wall. It opens straight onto the wall.
 
-- Site: https://probe-d9c337.api.holode.xyz
-- Support: support@probe-d9c337.api.holode.xyz
-<!-- /foundation:identity -->
+## What it does
 
-## What this is
+- **Sign the wall** — a short form (optional name, message up to 500 chars)
+  posts a note that appears at the top of the wall immediately.
+- **Read the wall** — every note, newest first, with name and timestamp.
+  Anonymous notes read "anonymous".
+- Built on Vela's Rails production foundation with Material Design 3 chrome:
+  accessible forms, light/dark theming, adaptive layout down to compact
+  widths.
 
-A one-page guestbook where visitors type a short message and see the wall of messages, newest first.
+## Stack
 
-## Who it is for
+- Ruby on Rails (the foundation's production template: PostgreSQL, Solid
+  Queue, Propshaft + importmaps, no Node build)
+- Material Design 3 semantic tokens for all chrome
+- No accounts required for anything a visitor does
 
-- visitor
+## Local development
 
-## Main features
-
-- **View the wall** — visitor lands on the single page and sees all messages, newest first
-- **Post a message** — visitor types a short message and submits it; it appears at the top of the wall
-
-## Core entities
-
-- Message
-
-## Run locally
-
-```bash
-bundle install
-bin/rails db:prepare
-bin/dev
+```sh
+bin/setup          # installs gems, sets up the database
+bin/rails db:seed  # adds a few welcome notes to the wall
+bin/dev            # boots the app (web + jobs)
 ```
 
-Requires Ruby, PostgreSQL, and the usual Rails toolchain. See `bin/setup` if present.
+Open http://localhost:3000 — the root is the guestbook.
 
-## Demo
+## Test
 
-A handful of friendly welcome messages with names and dates so the wall looks alive on first load.
+```sh
+bin/rails test
+```
 
-## Deploy notes
+## Deployment
 
-Production `config.hosts` is derived from `domain` in `config/foundation.yml`. Keep that value aligned with the real host or every request will 403.
+This app is deployed through the Holodex build flow. The demo deck wipes
+daily at 3AM Mexico City; the repo is yours to keep and fork. See
+`docs/DEPLOY.md` and `docs/HOSTED_RUNTIME.md` for self-hosting details.
+
+## Legal
+
+Terms of Service and Privacy Policy ship as versioned pages, linked from the
+footer. Before a production launch, replace the demo operator contact values
+(see `docs/` and the legal pages) with the real operator's details.
