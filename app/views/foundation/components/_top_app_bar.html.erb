@@ -16,11 +16,8 @@
               data-action="foundation--theme#cycle" data-foundation--theme-target="button">
         <%= material_symbol(:light_mode, fill: true, class: "md-theme-icon", data: { foundation__theme_target: "icon" }) %>
       </button>
-      <% unless user_signed_in? %>
-        <%= link_to "Sign in", new_user_session_path, class: "md-button md-button--outlined md-top-app-bar__account" %>
-        <% unless Foundation.surface_feature?(:shop) %>
-          <%= link_to "Get started", new_user_registration_path, class: "md-button md-button--filled md-top-app-bar__cta" %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= link_to "Account", edit_user_registration_path, class: "md-button md-button--text md-top-app-bar__account" %>
       <% end %>
     </div>
   </div>
