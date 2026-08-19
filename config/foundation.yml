@@ -18,7 +18,7 @@ shared:
   brand_seed_color: "#6750A4"
 
   # Fallbacks for pages that do not set their own title/description.
-  default_page_title: "Welcome"
+  default_page_title: "probe-d9c337 — sign the wall"
   default_page_description: "A one-page guestbook where visitors type a short message and see the wall of messages, newest first."
 
   # Absolute URL of the default Open Graph / social sharing image.
