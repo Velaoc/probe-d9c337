@@ -8,7 +8,7 @@ if Message.count.zero?
     [ "Aregus", "The server's first words, preserved for posterity." ],
     [ "Vela", "ping me anything, this is the one-page kind of app I like." ]
   ]
-  sample.each do |name, body|
-    Message.create!(author_name: name, body: body, created_at: 1.hour.ago + sample.index([name, body]).hours)
+  sample.each_with_index do |(name, body), index|
+    Message.create!(author_name: name, body: body, created_at: 1.hour.ago + index.hours)
   end
 end
