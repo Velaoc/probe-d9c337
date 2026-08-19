@@ -130,6 +130,9 @@ Rails.application.routes.draw do
     get "session", to: "sessions#show", as: :session
   end
 
-  # Minimal landing page until the M7 marketing set replaces it.
-  root "foundation/home#show"
+  # The guestbook is the whole product: one page to read the wall and
+  # post to it. Auth, billing, and admin stay reachable for operators but
+  # never show up in a visitor's flow.
+  root "guestbook#index"
+  post "messages", to: "guestbook#create", as: :messages
 end
