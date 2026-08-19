@@ -11,8 +11,27 @@
     <div class="gb__grid">
       <%= form_with model: @message, url: messages_path, class: "gb__form md-card md-card--elevated", aria: { label: "Post a message" } do |form| %>
         <h2 class="gb__form-title">Sign it</h2>
+
+        <% if @message.errors.any? %>
+          <div class="gb__errors" role="alert">
+            <p class="gb__errors-title">Your note couldn't be posted:</p>
+            <ul>
+              <% @message.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <%= md_text_field(form, :author_name, label: "Name", hint: "Optional — otherwise it reads “anonymous”.") %>
-        <%= md_text_field(form, :body, label: "Message", type: :textarea, hint: "Up to 500 characters.") %>
+
+        <div class="md-field">
+          <%= form.label :body, "Message", class: "md-field__label" %>
+          <%= form.text_area :body, class: "md-field__input", rows: 4,
+                aria: { describedby: "message_body_hint" } %>
+          <p class="md-field__support" id="message_body_hint">Up to 500 characters.</p>
+        </div>
+
         <div class="gb__actions">
           <%= md_button "Post to the wall", type: "submit", variant: :filled, icon: :send %>
         </div>
