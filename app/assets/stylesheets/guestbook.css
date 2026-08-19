@@ -8,6 +8,9 @@
 .gb__form { display: grid; gap: 16px; }
 .gb__form-title { margin: 0; font-size: var(--md-sys-typescale-title-large-size); }
 .gb__actions { display: flex; justify-content: flex-end; }
+.gb__errors { padding: 12px 16px; border: 1px solid var(--md-sys-color-error); border-radius: var(--md-sys-shape-corner-small); background: var(--md-sys-color-error-container); color: var(--md-sys-color-on-error-container); font-size: var(--md-sys-typescale-body-medium-size); }
+.gb__errors-title { margin: 0; font-weight: 650; }
+.gb__errors ul { margin: 4px 0 0; padding-left: 20px; }
 .gb__wall { display: grid; gap: 16px; }
 .gb__wall-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .gb__wall-title { margin: 0; font-size: var(--md-sys-typescale-title-large-size); }
